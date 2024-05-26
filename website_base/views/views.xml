@@ -1,0 +1,73 @@
+<odoo>
+    <data>
+
+        <template id="remove_lazy_assets" inherit_id="web.frontend_layout">
+            <xpath expr='//t[@t-call-assets="web.assets_common_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_common_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
+            <xpath expr='//t[@t-call-assets="web.assets_frontend_lazy"]' position="replace">
+                <t t-if="uid">
+                    <t t-call-assets="web.assets_frontend_lazy" t-css="false" lazy_load="True"/>
+                </t>
+            </xpath>
+        </template>
+
+        <template id="news_website_layout" name="News Website Layout" inherit_id="website.layout">
+            <xpath expr="//head/script[1]" position="after">
+                <script>window.is_website =1;</script>
+                <style>
+                    button[data-target="#top_menu_collapse"], #edit-page-menu{
+                        visibility: hidden;
+                    }
+                    #oe_main_menu_navbar{
+                        display:none;
+                    }
+                    .navbar-collapse ul#top_menu{
+                        padding-top: 10px;
+                    }
+
+                    @keyframes spinner {
+                      to {transform: rotate(360deg);}
+                    }
+                    body{
+                        background-color: #ccc;
+                    }
+                    .spinner:before {
+                      content: '';
+                      box-sizing: border-box;
+                      position: absolute;
+                      top: 50%;
+                      left: 50%;
+                      width: 20px;
+                      height: 20px;
+                      margin-top: -10px;
+                      margin-left: -10px;
+                      border-radius: 50%;
+                      border: 2px solid #ddd;
+                      border-top-color: #000;
+                      animation: spinner .6s linear infinite;
+                    }
+                    #wrapwrap{display:none;}
+                    @media (max-width: 767.98px)
+                    {
+                        #oe_main_menu_navbar.o_main_navbar{
+                            display:none;
+                        }
+                    }
+                </style>
+            </xpath>
+            <xpath expr="//link[@rel='preconnect'][1]" position="replace">
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="before">
+                <div class="spinner">
+                </div>
+            </xpath>
+            <xpath expr="//div[@id='wrapwrap']" position="after">
+                <script async="async" type="text/javascript" src="/website_base/static/show_dom.js"/>
+            </xpath>
+        </template>
+
+    </data>
+</odoo>

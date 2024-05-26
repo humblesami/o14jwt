@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <template id="assets_backend" name="mail edit assets" inherit_id="mail.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/log_edit/static/src/msg.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

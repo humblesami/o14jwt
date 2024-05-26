@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="assets_backend" name="contact_mail_redirect" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/contact_mail_redirect/static/src/js/basic_renderer.js"></script>
+                <script type="text/javascript" src="/contact_mail_redirect/static/src/js/basic_fields.js"></script>
+            </xpath>
+        </template>
+    </data>
+</odoo>

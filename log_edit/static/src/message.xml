@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Message" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_Message_headerCommands')]" position="inside">
+            <t t-if="message.is_note and message.author.id == message.env.session.partner_id">
+                <style>
+                    .o_MessageActionList_actionEdit{
+                        cursor:pointer;
+                    }
+                </style>
+                <span class="o_MessageActionList_action o_MessageActionList_actionEdit p-2 fa fa-lg fa-pencil"
+                                    title="Edit-Log" role="button" tabindex="0" aria-label="Edit" t-on-click="messageActionList_onClickEdit1"/>
+            </t>
+
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,17 @@
+
+account.account x
+has account.move.line items
+                                                                        Amount
+1 => branch_id a    => analytic account a   => analytic tags => a,b,c   50
+2 => branch_id a    => analytic account a   => analytic tags => a,b     30
+3 => branch_id a    => analytic account b   => analytic tags => b,c     20
+4 => branch_id b    => analytic account null                            40
+
+Report (With account->branch->analytical_account) will be like
+x                           amount 140(100+40)
+    br = a                  amount 100(80+20)
+        aa = a              amount 80(50+30)
+        aa = b              amount 20
+    br=b                    amount 40
+
+How we will present above report when we consider analytical tags as well?
